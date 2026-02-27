@@ -1,3 +1,5 @@
+import time as pytime
+start = pytime.time()
 from utils.auth_guard import require_auth
 require_auth()
 from utils.header import render_header
@@ -60,7 +62,8 @@ def schedule_badge(status: str):
 posts = get("/posts/")
 accounts = get("/accounts/")
 calendar_items = get("/calendar/")
-schedules = get("/schedules/")
+#schedules = get("/schedules/")
+schedules = []
 
 # Manejo errores API
 if isinstance(posts, dict) and posts.get("error"):
@@ -236,7 +239,7 @@ else:
             st.markdown(f"### {day_label}")
             current_day = day_label
 
-        with st.container(border=True):
+        with st.container():
             c1, c2, c3, c4 = st.columns([0.13, 0.42, 0.25, 0.20])
 
             with c1:
@@ -267,3 +270,5 @@ else:
                 else:
                     badge("⚠️ sin schedule")
                     st.caption("Revisa creación automática")
+
+st.write("Render:", round(pytime.time() - start, 2), "seconds")

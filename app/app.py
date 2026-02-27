@@ -1,3 +1,5 @@
+import time as pytime
+start = pytime.time()
 import streamlit as st
 from utils.header import render_header
 render_header()
@@ -38,3 +40,5 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
+st.write("Render:", round(pytime.time() - start, 2), "seconds")

@@ -1,3 +1,5 @@
+import time as pytime
+start = pytime.time()
 import streamlit as st
 from services.api_client import post, get
 
@@ -80,3 +82,5 @@ with st.form("login_form"):
                     st.switch_page("app.py")
 
 st.markdown('</div>', unsafe_allow_html=True)
+
+st.write("Render:", round(pytime.time() - start, 2), "seconds")

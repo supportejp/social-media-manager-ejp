@@ -1,7 +1,10 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from datetime import datetime
 
+
 class LogResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
     id: int
     level: str
     event: str
@@ -13,6 +16,3 @@ class LogResponse(BaseModel):
     account_id: int | None = None
 
     created_at: datetime
-
-    class Config:
-        orm_mode = True

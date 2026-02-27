@@ -96,7 +96,11 @@ status_filter = st.selectbox(
     index=0
 )
 
-data = get("/posts/")
+@st.cache_data(ttl=5)
+def load_posts():
+    return get("/posts/")
+
+data = load_posts()
 
 if isinstance(data, dict) and data.get("error"):
     st.error(f"Error cargando posts: {data['error']}")

@@ -1,7 +1,7 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from datetime import datetime
-from pydantic import BaseModel
 from typing import Optional
+
 
 class PostBase(BaseModel):
     title: str
@@ -15,10 +15,9 @@ class PostBase(BaseModel):
 class PostCreate(PostBase):
     pass
 
-class PostResponse(PostBase):
-    id: int
-    linkedin_post_urn: Optional[str] = None
-    created_at: datetime
 
-    class Config:
-        orm_mode = True
+class PostResponse(PostBase):
+    model_config = ConfigDict(from_attributes=True)
+
+    id: int
+    created_at: datetime
