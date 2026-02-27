@@ -1,6 +1,7 @@
 import requests
 import streamlit as st
-from config import API_BASE_URL
+from app.config import API_BASE_URL
+BASE_URL = API_BASE_URL
 
 
 def _get_headers():
