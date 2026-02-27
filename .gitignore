@@ -1,0 +1,39 @@
+# Entorno / secretos
+.env
+.env.*
+secrets.toml
+*.pem
+*.key
+*.crt
+
+# Base de datos y archivos locales
+*.db
+*.sqlite
+*.sqlite3
+uploads/
+
+# Logs y temporales
+*.log
+*.tmp
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+
+# Streamlit local
+.streamlit/
+
+# OS / IDE
+.DS_Store
+.vscode/
+.idea/
+
+# Node (si existe)
+node_modules/
+dist/
+build/
